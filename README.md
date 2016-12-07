@@ -26,7 +26,7 @@ Next steps:
 
 3. Eliminate duplicates. By duplicates I mean the three rotations and four reflections that each configuration has.
 
-4. Score the solutions based on various criteria. For example, which solution has the fewest number of regions composed of tiles of the same size (i.e., the least "fragmentation"), which solutions has the most.
+4. Score the solutions based on various criteria. For example, which solutions have the fewest number of regions composed of tiles of the same size (i.e., the least "fragmentation"), which solutions have the most.
 
 5. Look for interesting patterns. It's obvious that the 1x1 tile can't be in any of the edge positions so what's the closest it can come? Are there locations in the interior that the 1x1 tile can never inhabit? Are there locations that provide the majority of solutions? And so forth.
 
