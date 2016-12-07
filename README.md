@@ -17,13 +17,15 @@ I came up with an exhaustive search algorithm and implemented it in Python. It's
 
 Next steps:
 
-1. Probably port this to Java or something that runs faster. This is taking forever.
+1. Port this to Java or something that runs faster. This is taking forever.
 
 2. Improve the board display routine to make better use of color. It's ugly as sin right now.
 
-3. Eliminate duplicates. By duplicates I mean the three rotations and four reflections that any configuration will have.
+3. Eliminate duplicates. By duplicates I mean the three rotations and four reflections that each configuration has.
 
 4. Score the solutions based on various criteria. For example, which solution has the fewest number of regions composed of tiles of the same size (i.e., the least "fragmentation"), which solutions has the most.
 
 5. Look for interesting patterns. It's obvious that the 1x1 tile can't be in any of the edge positions so what's the closest it can come? Are there locations in the interior that the 1x1 tile can never inhabit? Are there locations that provide the majority of solutions? And so forth.
+
+6. Refactor this README into a Wiki, an Issues list, etc.
 
