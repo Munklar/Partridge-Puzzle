@@ -16,6 +16,7 @@ Although the articles discuss Partridge Numbers for a variety of shapes (e.g., e
 I came up with an exhaustive search algorithm and implemented it in Python. It's an O(N^3) beast and only tests about 5000 solutions per second. As of this writing it's been running for a couple of days, has tried about 3 billion configurations, and found about 1100 solutions.
 
 Next steps:
+
 1. Probably port this to Java or something that runs faster. This is taking forever.
 
 2. Improve the board display routine to make better use of color. It's ugly as sin right now.
