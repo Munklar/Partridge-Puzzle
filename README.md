@@ -7,8 +7,11 @@ Suppose you have a bunch of square tiles: you have N of the tiles that are N uni
 And it turns out that that sum equals [ N x (N+1) / 2 ]^2
 
 That's pretty interesting since it raises the possibility that all those tiles could be arranged to fit inside a square whose length and width are N x (N+1)/2. OK, but a quick look reveals that for small values of N (e.g., 2 or 3) you can't actually make the tiling work. So what is the smallest value of N where it *does* work? That minimal value is called the "Partridge Number" and here are some links that talk about it in great depth:
+
 http://www2.stetson.edu/~efriedma/papers/partridge.pdf
+
 http://www2.stetson.edu/~efriedma/mathmagic/0802.html
+
 http://www.mathpuzzle.com/partridge.html
 
 Although the articles discuss Partridge Numbers for a variety of shapes (e.g., equilateral triangles, trapezoids, rectangles), I'm only concerned with squares (at least for now). The "literature" (all three articles of it) agree that the Partridge Number for square tiles is 8 and that there are over 2000 possible solutions. I couldn't find a comprehensive list of solutions so I thought I would write a program that would find all of them.
