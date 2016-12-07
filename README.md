@@ -16,7 +16,7 @@ http://www.mathpuzzle.com/partridge.html
 
 Although the articles discuss Partridge Numbers for a variety of shapes (e.g., equilateral triangles, trapezoids, rectangles), I'm only concerned with squares (at least for now). The "literature" (all three articles of it) agree that the Partridge Number for square tiles is 8 and that there are over 2000 possible solutions. I couldn't find a comprehensive list of solutions so I thought I would write a program that would find all of them.
 
-I came up with an exhaustive search algorithm and implemented it in Python. It's an O(N^3) beast and only tests about 5000 solutions per second. As of this writing it's been running for a couple of days, has tried about 3 billion configurations, and found about 1100 solutions.
+I came up with an exhaustive search algorithm and implemented it in Python. It has a triple nested loop that recurses so that makes it what, an O(N^N) beast? As of this writing, it's run for about a week, tried about 3.2 billion configurations, and found about 1199 solutions. That's about 5200 configurations per second.
 
 Next steps:
 
