@@ -6,7 +6,7 @@ Suppose you have a bunch of square tiles: you have N of the tiles that are N uni
 
 And it turns out that that sum equals [ N x (N+1) / 2 ]^2
 
-That's pretty interesting since it raises the possibility that all those tiles could be arranged to fit inside a square whose length and width are N x (N+1)/2. OK, but a quick look reveals that for small values of N (e.g., 2 or 3) you can't actually make the tiling work. So what is the smallest value of N where it *does* work? That minimal value is called the "Partridge Number" and here are some links that talk about it in great depth:
+That's pretty interesting: the sum is expressed as a term (i.e., "N X (N+1)/2") that is *squared* and that raises the possibility that all those tiles could be arranged to fit inside a square that is N x (N+1)/2 units on each side. OK, but a quick look reveals that for small values of N (e.g., 2 or 3) you can't actually make the tiling work. So what is the smallest value of N where it *does* work? That minimum value is called the "Partridge Number" and here are the only links I've been able to find that discuss it:
 
 http://www2.stetson.edu/~efriedma/papers/partridge.pdf
 
@@ -14,9 +14,9 @@ http://www2.stetson.edu/~efriedma/mathmagic/0802.html
 
 http://www.mathpuzzle.com/partridge.html
 
-Although the articles discuss Partridge Numbers for a variety of shapes (e.g., equilateral triangles, trapezoids, rectangles), I'm only concerned with squares (at least for now). The "literature" (all three articles of it) agree that the Partridge Number for square tiles is 8 and that there are over 2000 possible solutions. I couldn't find a comprehensive list of solutions so I thought I would write a program that would find all of them.
+Although the articles discuss Partridge Numbers for a variety of shapes (e.g., equilateral triangles, trapezoids, rectangles), I'm only concerned with squares (at least for now). The "literature" (all three articles of it) agree that the Partridge Number for square tiles is 8 and that there are over 2000 possible solutions. I couldn't find a comprehensive list of all possible solutions so I thought I would write a program that would generate them.
 
-I came up with an exhaustive search algorithm and implemented it in Python. It has a triple nested loop that recurses so that makes it what, an O(N^N) beast? As of this writing, it's run for about a week, tried about 3.2 billion configurations, and found about 1199 solutions. That's about 5200 configurations per second.
+I came up with an exhaustive search algorithm and implemented it in Python. It has a triple nested loop that recurses so that makes it what, an O(N^N) beast? As of this writing, it's run for over a week, tried about 5 billion configurations, and found about 1700 solutions. That's about 5200 configurations per second.
 
 Next steps:
 
