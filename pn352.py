@@ -11,7 +11,7 @@
 from timeit import default_timer as timer
 
 
-BigN=4
+BigN=8
 tile_count=int(BigN*(BigN+1)/2)
 board_size=int(BigN*(BigN+1)/2)
 attempts=0
