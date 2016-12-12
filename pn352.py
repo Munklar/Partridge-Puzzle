@@ -100,7 +100,6 @@ def can_fit(tile_size, pos_row, pos_col):
 
 
 def go_deep():
-    show_board()
     global attempts
     attempts+=1
     global solutions
