@@ -11,7 +11,7 @@
 from timeit import default_timer as timer
 
 
-BigN=4
+BigN=5
 tile_count=int(BigN*(BigN+1)/2)
 board_size=int(BigN*(BigN+1)/2)
 attempts=0
@@ -63,7 +63,7 @@ def init_board():
 
 
 def show_board():
-    print("Elapsed seconds:", timer())
+    print("Elapsed seconds: {:,.2f}".format(timer()))
     for row in range(board_size-1, -1, -1):
         for col in range(board_size):
             position=board[(row*board_size)+col]
