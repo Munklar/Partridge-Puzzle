@@ -20,7 +20,7 @@ tile_list=list()
 board=list()
 
 
-color_flag=True
+color_flag=False
 CSI_BEG="\x1B["
 CSI_END="m"
 CSI_OFF=CSI_BEG+"0m"
@@ -36,107 +36,106 @@ CSI_COLORS=[CSI_black, CSI_red, CSI_green, CSI_blue, CSI_yellow, CSI_purple, CSI
 
 
 def build_tile_list():
-	for outer in range(BigN):
-		for inner in range(outer+1):
-			tile=list()
-			tile.append(outer+1)
-			tile.append(False)
-			tile_list.append(tile)
+    for outer in range(BigN):
+        for inner in range(outer+1):
+            tile=list()
+            tile.append(outer+1)
+            tile.append(False)
+            tile_list.append(tile)
 
 
 def unused_tiles():
-	for index in range(tile_count):
-		if tile_list[index][1]==False:
-			return True
-	return False
+    for index in range(tile_count):
+        if tile_list[index][1]==False:
+            return True
+    return False
 
 
 def init_board():
-	for row in range(board_size):
-		for col in range(board_size):
-			position=list()
-			position.append(row+1)
-			position.append(col+1)
-			position.append(0)
-			position.append(False)
-			board.append(position)
+    for row in range(board_size):
+        for col in range(board_size):
+            position=list()
+            position.append(row+1)
+            position.append(col+1)
+            position.append(0)
+            position.append(False)
+            board.append(position)
 
 
 def show_board():
-	for row in range(board_size-1, -1, -1):
-		for col in range(board_size):
-			position=board[(row*board_size)+col]
-			
-			if position[2]==0:
-				print(".", end=" ")
-			else:
-				if color_flag==True:
-					print(CSI_COLORS[position[2]-1]+str(position[2])+" "+CSI_OFF, end="")
-				else:
-					print(position[2], end=" ")
-		print()
-	print()
+    for row in range(board_size-1, -1, -1):
+        for col in range(board_size):
+            position=board[(row*board_size)+col]
+            
+            if position[2]==0:
+                print(".", end=" ")
+            else:
+                if color_flag==True:
+                    print(CSI_COLORS[position[2]-1]+str(position[2])+" "+CSI_OFF, end="")
+                else:
+                    print(position[2], end=" ")
+        print()
+    print()
 
 
 def add_drop_tile(tile_size, pos_row, pos_col, add_flag):
-	for row in range(pos_row, pos_row+tile_size):
-		for col in range(pos_col, pos_col+tile_size):
-			board[(row*board_size)+col][3]=add_flag
-			if add_flag==True:
-				board[(row*board_size)+col][2]=tile_size
-			else:
-				board[(row*board_size)+col][2]=0
+    for row in range(pos_row, pos_row+tile_size):
+        for col in range(pos_col, pos_col+tile_size):
+            board[(row*board_size)+col][3]=add_flag
+            if add_flag==True:
+                board[(row*board_size)+col][2]=tile_size
+            else:
+                board[(row*board_size)+col][2]=0
 
 
 def can_fit(tile_size, pos_row, pos_col):
-	if pos_row+tile_size>board_size or pos_col+tile_size>board_size:
-		return False
-	
-	for row in range(pos_row, pos_row+tile_size):
-		for col in range(pos_col, pos_col+tile_size):
-			if board[(row*board_size)+col][3]==True:
-				return False
-	return True
+    if pos_row+tile_size>board_size or pos_col+tile_size>board_size:
+        return False
+    
+    for row in range(pos_row, pos_row+tile_size):
+        for col in range(pos_col, pos_col+tile_size):
+            if board[(row*board_size)+col][3]==True:
+                return False
+    return True
 
 
 def go_deep():
-	global attempts
-	attempts+=1
-	global solutions
-	
-	for row in range(board_size):
-		for col in range(board_size):
-			if board[(row*board_size)+col][3]==False:
-				last_tile_used=0
-				for index in range(tile_count):
-					tile=tile_list[index]
-					if tile[1]==False and tile[0]!=last_tile_used:  # unused tile and a size we haven't already tried
-						last_tile_used=tile[0]
-
-						if can_fit(tile[0], row, col)==True:
-							tile_list[index][1]=True
-							add_drop_tile(tile[0], row, col, True)
-						
-							if unused_tiles()==True:
-								go_deep()
-							else:
-								solutions+=1
-								print("Solution #", solutions, "is configuration #", attempts)
-								show_board()  # don't return keep; looking for more solutions
-
-							add_drop_tile(tile[0], row, col, False)
-							tile_list[index][1]=False
-				return  # bail if we've tried all tiles
+    global attempts
+    attempts+=1
+    global solutions
+    
+    for row in range(board_size):
+        for col in range(board_size):
+            if board[(row*board_size)+col][3]==False:
+                last_tile_used=0
+                for index in range(tile_count):
+                    tile=tile_list[index]
+                    if tile[1]==False and tile[0]!=last_tile_used:  # unused tile and a size we haven't already tried
+                        last_tile_used=tile[0]
+                        
+                        if can_fit(tile[0], row, col)==True:
+                            tile_list[index][1]=True
+                            add_drop_tile(tile[0], row, col, True)
+                            
+                            if unused_tiles()==True:
+                                go_deep()
+                            else:
+                                solutions+=1
+                                print("Solution #", solutions, "is configuration #", attempts)
+                                show_board()  # don't return keep; looking for more solutions
+                            
+                            add_drop_tile(tile[0], row, col, False)
+                            tile_list[index][1]=False
+                return  # bail if we've tried all tiles
 
 
 def part_num():
-	start=timer()
-	build_tile_list()
-	init_board()
-	
-	go_deep()
-	end=timer()
-	print("Tried", format(attempts, ",d"), "configurations in", (end-start)/(60*60), "hours")
+    start=timer()
+    build_tile_list()
+    init_board()
+    
+    go_deep()
+    end=timer()
+    print("Tried", format(attempts, ",d"), "configurations in", (end-start)/(60*60), "hours")
 
-part_num()
 
