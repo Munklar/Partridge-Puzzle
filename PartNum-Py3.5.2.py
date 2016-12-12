@@ -16,6 +16,7 @@ tile_count=int(BigN*(BigN+1)/2)
 board_size=int(BigN*(BigN+1)/2)
 attempts=0
 solutions=0
+start=0
 tile_list=list()
 board=list()
 
@@ -130,6 +131,8 @@ def go_deep():
 
 
 def part_num():
+	global start
+
     start=timer()
     build_tile_list()
     init_board()
