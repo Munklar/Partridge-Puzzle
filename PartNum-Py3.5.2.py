@@ -121,7 +121,7 @@ def go_deep():
                                 go_deep()
                             else:
                                 solutions+=1
-                                print("Solution #", solutions, "is configuration #", attempts)
+                                print("Solution #{:,} is Configuration #{:,} found in {:,.2f} seconds".format(solutions, attempts, timer()))
                                 show_board()  # don't return keep; looking for more solutions
                             
                             add_drop_tile(tile[0], row, col, False)
@@ -136,6 +136,6 @@ def part_num():
     
     go_deep()
     end=timer()
-    print("Tried", format(attempts, ",d"), "configurations in", (end-start)/(60*60), "hours")
+    print("Tried {:,} configurations in {:,.2f} hours".format(attempts, (end-start)/(60*60)))
 
 
