@@ -20,7 +20,7 @@ tile_list=list()
 board=list()
 
 
-color_flag=True
+color_flag=False
 CSI_BEG="\x1B["
 CSI_END="m"
 CSI_OFF=CSI_BEG+"0m"
