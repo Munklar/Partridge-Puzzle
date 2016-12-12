@@ -121,7 +121,7 @@ def go_deep():
                                 go_deep()
                             else:
                                 solutions+=1
-                                print("Solution #{:,} is Configuration #{:,} found in {:,.2f} seconds".format(solutions, attempts, timer()))
+                                print("Solution #{:,} is Configuration #{:,} found in {:,.2f} minutes".format(solutions, attempts, (timer()-start)/60))
                                 show_board()  # don't return keep; looking for more solutions
                             
                             add_drop_tile(tile[0], row, col, False)
