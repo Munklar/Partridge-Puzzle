@@ -11,7 +11,7 @@
 from timeit import default_timer as timer
 
 
-BigN=8
+BigN=4
 tile_count=int(BigN*(BigN+1)/2)
 board_size=int(BigN*(BigN+1)/2)
 attempts=0
@@ -100,6 +100,7 @@ def can_fit(tile_size, pos_row, pos_col):
 
 
 def go_deep():
+    show_board()
     global attempts
     attempts+=1
     global solutions
@@ -138,5 +139,4 @@ def part_num():
     end=timer()
     print("Tried", format(attempts, ",d"), "configurations in", (end-start)/(60*60), "hours")
 
-part_num()
 
