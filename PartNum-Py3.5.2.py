@@ -131,8 +131,8 @@ def go_deep():
 
 
 def part_num():
-	global start
-	
+    global start
+    
     start=timer()
     build_tile_list()
     init_board()
