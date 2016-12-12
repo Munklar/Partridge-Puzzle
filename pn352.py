@@ -112,18 +112,18 @@ def go_deep():
                     tile=tile_list[index]
                     if tile[1]==False and tile[0]!=last_tile_used:  # unused tile and a size we haven't already tried
                         last_tile_used=tile[0]
-
+                        
                         if can_fit(tile[0], row, col)==True:
                             tile_list[index][1]=True
                             add_drop_tile(tile[0], row, col, True)
-                        
+                            
                             if unused_tiles()==True:
                                 go_deep()
                             else:
                                 solutions+=1
                                 print("Solution #", solutions, "is configuration #", attempts)
                                 show_board()  # don't return keep; looking for more solutions
-
+                            
                             add_drop_tile(tile[0], row, col, False)
                             tile_list[index][1]=False
                 return  # bail if we've tried all tiles
