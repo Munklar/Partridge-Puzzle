@@ -16,19 +16,17 @@ http://www.mathpuzzle.com/partridge.html
 
 Although the articles discuss Partridge Numbers for a variety of shapes (e.g., equilateral triangles, trapezoids, rectangles), I'm only concerned with squares (at least for now). The "literature" (all three articles of it) agree that the Partridge Number for square tiles is 8 and that there are 2332 solutions, attributed to Bill Cutler and Patrick Hamlyn. The articles don't say if there are 2332 *unique* solutions that exclude rotations and reflections and I couldn't find a comprehensive list of all possible solutions so I thought I would write a program and generate them myself.
 
-I came up with an exhaustive search algorithm and implemented it in Python. It has a triple nested loop that recurses so that makes it what, an O(N^N) beast? As of this writing, it's run for over a week, tried about 5 billion configurations, and found about 1700 solutions. That's about 5200 configurations per second.
+I came up with an exhaustive search algorithm and implemented it in Python. It has a triple nested loop, each O(N^2), that recurses so that makes it what, an O(N^12) beast? I ran the Python version for over a week and it was checking about 5200 configurations per second. That was going much too slowly so I ported it to Java which clocked in at about 1.3 million configuratoins per second. So it checked all 60+ billion configurations in less than a day.
+
+The Solutions.txt contains all 18,656 solutions, including rotations and reflections, of which there are 8. So the total number of unique solutions is 2332.
 
 Next steps:
 
-1. Port this to Java or something that runs faster. This is taking forever.
+1. Eliminate duplicates. By duplicates I mean the three rotations and four reflections that each configuration has.
 
-2. Improve the board display routine to make better use of color. It's ugly as sin right now.
+2. Score the solutions based on various criteria. For example, which solutions have the fewest number of regions composed of tiles of the same size (i.e., the least "fragmentation"), which solutions have the most.
 
-3. Eliminate duplicates. By duplicates I mean the three rotations and four reflections that each configuration has.
+3. Look for interesting patterns. It's obvious that the 1x1 tile can't be in any of the edge positions so what's the closest it can come? Are there locations in the interior that the 1x1 tile can never inhabit? Are there locations that provide the majority of solutions? And so forth.
 
-4. Score the solutions based on various criteria. For example, which solutions have the fewest number of regions composed of tiles of the same size (i.e., the least "fragmentation"), which solutions have the most.
-
-5. Look for interesting patterns. It's obvious that the 1x1 tile can't be in any of the edge positions so what's the closest it can come? Are there locations in the interior that the 1x1 tile can never inhabit? Are there locations that provide the majority of solutions? And so forth.
-
-6. Refactor this README into a Wiki, an Issues list, etc.
+4. Refactor this README into a Wiki, an Issues list, etc.
 
