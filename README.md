@@ -16,7 +16,7 @@ http://www.mathpuzzle.com/partridge.html
 
 Although the articles discuss Partridge Numbers for a variety of shapes (e.g., equilateral triangles, trapezoids, rectangles), I'm only concerned with squares (at least for now). The "literature" (all three articles of it) agree that the Partridge Number for square tiles is 8 and that there are 2332 solutions, attributed to Bill Cutler and Patrick Hamlyn. The articles don't say if there are 2332 *unique* solutions that exclude rotations and reflections and I couldn't find a comprehensive list of all possible solutions so I thought I would write a program and generate them myself.
 
-I came up with an exhaustive search algorithm and implemented it in Python. It has a triple nested loop, each O(N^2), that recurses so that makes it what, an O(N^12) beast? I ran the Python version for over a week and it was checking about 5200 configurations per second. That was going much too slowly so I ported it to Java which clocked in at about 1.3 million configuratoins per second. So it checked all 60+ billion configurations in less than a day.
+I came up with an exhaustive search algorithm and implemented it in Python. It has a triple nested loop, each O(N^2), that recurses so that makes it what, an O(N^12) beast? I ran the Python version for over a week and it was checking about 5200 configurations per second. That was going much too slowly so I ported it to Java which clocked in at about 1.3 million configuratoins per second. It checked all 60+ billion configurations in less than a day.
 
 The Solutions.txt contains all 18,656 solutions, including rotations and reflections, of which there are 8. So the total number of unique solutions is 2332.
 
