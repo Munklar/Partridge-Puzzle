@@ -18,7 +18,7 @@ Although the articles discuss Partridge Numbers for a variety of shapes (e.g., e
 
 I came up with an exhaustive search algorithm and implemented it in Python. It has a triple nested loop, each O(N^2), that recurses so that makes it what, an O(N^12) beast? I ran the Python version for over a week and it was checking about 5200 configurations per second. That was going much too slowly so I ported it to Java which clocked in at about 1.3 million configuratoins per second. It checked all 60+ billion configurations in less than a day.
 
-The Solutions.txt contains all 18,656 solutions, including rotations and reflections. Since there are 7 rotations and reflections for every solution, the total number of unique solutions is 2332 which agrees with the Bill Cutler and Patrick Hamlyn work.
+The Solutions.txt file contains all 18,656 solutions, including rotations and reflections. Since there are 7 rotations and reflections for every solution, the total number of unique solutions is 2332, which agrees with Bill Cutler's and Patrick Hamlyn's result.
 
 Next steps:
 
