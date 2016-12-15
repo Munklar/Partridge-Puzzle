@@ -42,9 +42,8 @@
 // 3.a.ii. If there are still unused tiles then call this function (i.e., recurse).
 // 3.a.iii. Back out of the last move so that we can continue trying more tiles. That is, remove the tile 
 // from the board and mark the tile as unused on the tile list.
-// 3.b. Continue traversing the tile list. (BTW: There's an optimization opportunity here: since the tile
-// list is ordered by increasing tile size, once you hit a tile that doesn't fit, you can bail on the loop
-// that is traversing the list).
+// 3.b If it would not fit then bail. No point in trying any of the remaining tiles since the tile list 
+// holds them in order of inreasing size.
 // 4. Once we tried all the available tiles, return to our caller.
 // 5. Contiue traversing the board.
 //
@@ -114,6 +113,7 @@ class BoardSquare {
     static String CSI_BEG="\u001B[";
     static String CSI_END="m";
     static String CSI_OFF=CSI_BEG+"0m";
+    static String CSI_NONE="";
     static String CSI_black=CSI_BEG+"0;30;40"+CSI_END;
     static String CSI_red=CSI_BEG+"0;30;41"+CSI_END;
     static String CSI_green=CSI_BEG+"0;30;42"+CSI_END;
@@ -122,7 +122,8 @@ class BoardSquare {
     static String CSI_purple=CSI_BEG+"0;30;45"+CSI_END;
     static String CSI_teal=CSI_BEG+"0;30;46"+CSI_END;
     static String CSI_grey=CSI_BEG+"0;30;47"+CSI_END;
-    static String[] CSI_COLORS={CSI_black, CSI_red, CSI_green, CSI_blue, CSI_yellow, CSI_purple, CSI_teal, CSI_grey};
+    static String[] CSI_COLORS={CSI_NONE, CSI_black, CSI_red, CSI_green, CSI_blue, CSI_yellow, CSI_purple, CSI_teal, CSI_grey};
+    static String[] TILE_SYMBOLS={"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L"}; // Ought to be enough for now
 
     public BoardSquare(int BigN) {
         board_size = BigN*(BigN+1)/2;
@@ -135,8 +136,16 @@ class BoardSquare {
     public void show() {
         for (row = board_size-1; row >= 0; row--) {
             for (col = 0; col < board_size; col ++) {
-                // If you don't want color, use this: System.out.print(matrix[row][col]+" ");
-                System.out.print(CSI_COLORS[matrix[row][col]-1]+matrix[row][col]+" "+CSI_OFF);
+                int tsize=matrix[row][col];
+
+                // if N is 8 or less and you want to print in color, this will work:
+                // System.out.print(CSI_COLORS[tsize]+tsize+" "+CSI_OFF);
+
+                // if N is 21 or less and you want to use letters for values greater than 9, this will work:
+                if (tsize < TILE_SYMBOLS.length) // use symbols if we have enough symbols
+                    System.out.print(TILE_SYMBOLS[tsize]+" ");
+                else
+                    System.out.print(tsize+" ");
             }
             System.out.println();
         }
@@ -207,6 +216,7 @@ public class PartNum {
     public static void go_deep(BoardSquare board, TileStack tiles) {
         board.attempts += 1;
 
+        // board.show(); // diagnostic: it's handy to see the board configurations as they're being attempted
         for (int row = 0; row < board.board_size; row++) {
             for (int col = 0; col < board.board_size; col++) {
                 if (board.matrix[row][col] == 0) { // found an empty board position
@@ -228,7 +238,8 @@ public class PartNum {
 
                                 board.deltile(row, col, last_tile_used);
                                 tiles.tile_array[index].inuse = false;
-                            }
+                            } else
+                                return; // this tile was too big and the rest of the tiles are even bigger
                         }
                     }
                     return; // we tried all the tiles so it's time to leave
