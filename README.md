@@ -20,8 +20,3 @@ I came up with an exhaustive search algorithm and implemented it in Python. It h
 
 The Solutions.txt file contains all 18,656 solutions, including rotations and reflections. Since there are 7 rotations and reflections for every solution, the total number of unique solutions is 2332, which agrees with Bill Cutler's and Patrick Hamlyn's result.
 
-Next steps:
-
-1. Eliminate duplicates. By duplicates I mean the three rotations and four reflections that each configuration has.
-
-
