@@ -8,7 +8,7 @@ This Repository contains:
 
 4. A (large) text file called "8solutions.txt.gz" containing all 18,656 possible solutions for an N=8 square. 
 
-5. Some small files, called "9solutions.txt", "10solutions.txt", and "11solutions.txt", that contain the first solution found by the program for N=9, N=10, and N=11. (I suppose I should not have named them "solutions" in the plural since they each contain only a single solution.)
+5. Some small files, called "9solution.txt", "10solution.txt", and "11solution.txt", that contain the first solution found by the program for N=9, N=10, and N=11.
 
 6. A text file called "tile-dist.txt" that shows the average tile value for each position in the board. Not that interesting: the minimum value was 6.1 and the maximum value was 7.3.
 
