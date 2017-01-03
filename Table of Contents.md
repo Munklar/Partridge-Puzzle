@@ -16,4 +16,6 @@ This Repository contains:
 
 8. A text file called "transitions.txt" that is an only partially successful attempt at ranking all the solutions by how fragmented they are. For each solution, it scans each row and each column, one at a time. Each time it notices the tile size value change, it increments the transition counter. The file contains a list of all the solutions and their transition counts. They range from 243 to 341.
 
-9. Python code ("postproc.py") for generating the data in items 6 through 8. It's pretty shabby code written with the assumption that it only needs to run once. (Sorry.)
+9. A text file called "regions.txt" that shows the number of regions in each solution. A "region" is an area on the board composed of adjoining tiles all of the same size.
+
+10. Python code ("postproc.py") for generating the data in items 6 through 9. It's pretty shabby code written with the assumption that it only needs to run once. (Sorry.)
