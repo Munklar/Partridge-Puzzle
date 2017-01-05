@@ -1,5 +1,5 @@
 # Partridge-Number
-Solutions for, visualization of, and general inquiry into "Partridge Numbers".
+Solutions for, visualization of, and general inquiry into "Partridge Numbers" which were first described by Robert T. Wainwright in 1996 at the second Gathering for Gardner.
 
 Suppose you have a bunch of square tiles: you have N of the tiles that are N units on each side, N-1 of the tiles that are (N-1) x (N-1) in size, and so forth, down to 1 of the 1x1 tiles. Well, it's easy enough to compute the area of all those tiles taken together and it would be:
     Total Area = N^3 + (N-1)^3 + (N-2)^3 + ... + 1^3
