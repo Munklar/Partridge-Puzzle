@@ -5,6 +5,7 @@ This Repository contains:
 2. A README file with a problem description, some helpful links, and a current status of the project.
 
 3. Python and Java source code for finding solutions to square Partridge and Trapridge Puzzles (see the README file). The Python programs (both of them) were my first attempt at writing a solution and missed out on the optimizations I added to the Java version.  
+
 * PartNum-Py2.7.5.py solves Partridge Puzzles for Python v2.7.5
 * PartNum-Py3.5.2.py solves Partridge Puzzles for Python v3.2.5
 * pn5.java solves Partridge Puzzles for Java 8
