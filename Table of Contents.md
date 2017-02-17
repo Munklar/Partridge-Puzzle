@@ -11,11 +11,11 @@ This Repository contains:
  * rn5.java is the same as pn5.java but starts by placing the biggest tiles first (rather than the smallest)
  * tr5.java solves Trapridge Puzzles for Java 8
 
-4. Python code ("postproc.py") for generating the data in the Analysis sub-folder (q.v.). It's pretty shabby code written with the assumption that it only needs to run once. (Sorry.)
+4. A "Solutions" directory filled with solutions to square Partridge Puzzles of various sizes.
 
-5. A "Solutions" directory filled with solutions to square Partridge Puzzles of various sizes.
+5. An "Analysis" directory filled with different ways of analyzing the 18,656 solutions to the N=8 Partridge Puzzle. 
 
-6. An "Analysis" directory filled with different ways of analyzing the 18,656 solutions to the N=8 Partridge Puzzle. 
+6. An "Images" directory for the Python program that converts solutions into .PNG images, and a few of those .PNG images by way of example.
 
 
 
