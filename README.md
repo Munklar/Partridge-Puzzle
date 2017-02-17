@@ -1,4 +1,6 @@
 # Partridge-Puzzle
+Note: As of this writing (2/17/2017) I'm pretty much done. The code works and I've satisfied my curiosity about the solutions my programs found. 
+
 This repository is for the source code and related information needed to solve, visualize, and generally explore the "Partridge Puzzle" as described by Robert T. Wainwright in 1996 at the second "Gathering for Gardner". Note: I became interested in this puzzle because my last name is Partridge but its invention is entirely Bob Wainwright's. 
 
 Suppose you have a bunch of square tiles: you have N of the tiles that are N units on each side, N-1 of the tiles that are (N-1) x (N-1) in size, and so forth, down to 1 of the 1x1 tiles. Well, it's easy enough to compute the area of all those tiles taken together and it would be:
@@ -20,8 +22,10 @@ I came up with an exhaustive search algorithm and implemented it in Python. It h
 
 The "8solutions.txt" file contains all 18,656 solutions, including rotations and reflections. Since there are 7 rotations and reflections for every solution, the total number of unique solutions is 2,332 - which agrees with Bill Cutler's and Patrick Hamlyn's result.
 
-ADDENDUM:
-I was able to reach Bob Wainwright by email and he generously sent me copies of two papers he had written for Gathering for Gardner II in 1996 and Gathering for Gardner III in 1998. They are titled, respectively, "Packing a Partridge in a Square Tree" and "Packing a Partridge in the Smallest Square Tree". Between the two papers, the Partridge Puzzles and their variants are pretty thoroughly discussed and many solutions provided. 
+I was able to reach Bob Wainwright by email and he generously sent me copies of two papers he had written for Gathering for Gardner II in 1996 and Gathering for Gardner III in 1998. They are titled, respectively, "Packing a Partridge in a Square Tree" and "Packing a Partridge in the Smallest Square Tree". Between the two papers, the Partridge Puzzles and their variants are pretty thoroughly discussed and many solutions provided. I found one of the variants - I'll call it the Trapridge Puzzle - intriguing enough to adapt my program to solve.
 
-Bob pointed me to a reference to this puzzle in one of Martin Garnder's books. Look up "Wainwright" in the index of "Fractal Music, Hypercards and More..." by Martin Gardner, published in 1992 by W.H. Freeman.
+With the Trapridge Puzzle, rather than have 1 of the 1x1 tiles, you have N. And rather than having N of the NxN tiles, you have 1. The idea was that since the Twelve Days of Christmas song mentions the Partridge twelve times and the twelve Lords-a-Leaping once, this was a more faithful interpretation of the lyrics. Unfortunately the sum of areas for 12 1x1 tiles, 11 2x2 tiles, ... and 1 12x12 tile is not the square of an integer. So the Trapridge puzzle has no solutions for N=12. However, the sum of areas *is* a square of an integer for N=6, 25, 96, 361, etc. It was relatively easy to change my program to handle this variation and I have included it and the solutions it found.  
+
+By the way, Martin Garnder refers to Bob Wainwright's work on this puzzle in one of his books. Look up "Wainwright" in the index of "Fractal Music, Hypercards and More..." by Martin Gardner, published in 1992 by W.H. Freeman. 
+
 
