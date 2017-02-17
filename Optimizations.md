@@ -14,4 +14,4 @@ To get pn5.java to find solutions for larger and larger N, I added some optimiza
 >Optimization 5: 2,194,534,969  
 >
 
-I didn't do any precise profiling but the optimizations seemed to cut the running time by 60% - 70%.
+I didn't do any precise profiling but the optimizations seemed to cut the running time by 70% - 80%.
