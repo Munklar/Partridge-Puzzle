@@ -6,7 +6,7 @@ Suppose you have a bunch of square tiles: you have N of the tiles that are N uni
 
 And it turns out that that sum equals [ N x (N+1) / 2 ]^2
 
-That's pretty interesting: the sum is expressed as a term that is *squared* (namely "N X (N+1)/2") and that raises the possibility that all those tiles could be arranged to fit perfectly inside a square that is N x (N+1)/2 units on each side. OK, but a quick look reveals that for small values of N (e.g., 2 or 3) you can't actually make the tiling work. So what is the smallest value of N where it *does* work? That minimum value of N is called the "Partridge Number" and here are the only links I've been able to find that discuss it:
+That's pretty interesting: the sum is expressed as a term that is *squared* (namely "N X (N+1)/2") and that raises the possibility that all those tiles could be arranged to fit perfectly inside a square that is N x (N+1)/2 units on each side. OK, but a quick look reveals that for small values of N (e.g., 2 or 3) you can't actually make the tiling work. So what is the smallest value of N where it *does* work? That minimum value of N is sometimes called the "Partridge Number" and here are the only links I've been able to find that discuss it:
 
 http://www.mathpuzzle.com/partridge.html
 
@@ -22,4 +22,6 @@ The "8solutions.txt" file contains all 18,656 solutions, including rotations and
 
 ADDENDUM:
 I was able to reach Bob Wainwright by email and he generously sent me copies of two papers he had written for Gathering for Gardner II in 1996 and Gathering for Gardner III in 1998. They are titled, respectively, "Packing a Partridge in a Square Tree" and "Packing a Partridge in the Smallest Square Tree". Between the two papers, the Partridge Puzzles and their variants are pretty thoroughly discussed and many solutions provided. 
+
+Bob pointed me to a reference to this puzzle in one of Martin Garnder's books. Look up "Wainwright" in the index of "Fractal Music, Hypercards and More..." by Martin Gardner, published in 1992 by W.H. Freeman.
 
