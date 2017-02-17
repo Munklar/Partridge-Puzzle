@@ -4,18 +4,14 @@ This Repository contains:
 
 2. A README file with a problem description, some helpful links, and a current status of the project.
 
-3. Python and Java source code for figuring out how to tile a square that is Nx(N+1)/2 units on each side with 1 tile that is 1x1, 2 tiles that are 2x2, ... and N tiles that are NxN. There are versions for Python v2.7.5, Python v3.5.2, and Java 8.
+3. Python and Java source code for finding solutions to square Partridge Puzzles (see the README file). There are versions for Python v2.7.5, Python v3.5.2, and Java 8.
 
-4. A (large) text file called "8solutions.txt.gz" containing all 18,656 possible solutions for an N=8 square. 
+4. Python code ("postproc.py") for generating the data in the Analysis sub-folder (q.v.). It's pretty shabby code written with the assumption that it only needs to run once. (Sorry.)
 
-5. Some small files, called "9solution.txt", "10solution.txt", and "11solution.txt", that contain the first solution found by the program for N=9, N=10, and N=11.
+5. A "Solutions" directory filled with solutions to square Partridge Puzzles of various sizes.
 
-6. A text file called "tile-dist.txt" that shows the average tile value for each position in the board. Not that interesting: the minimum value was 6.1 and the maximum value was 7.3.
+6. An "Analysis" directory filled with different ways of analyzing the 18,656 solutions to the N=8 Partridge Puzzle. 
 
-7. A text file called "1freq-zero.txt" that shows the total number of times the 1x1 tile was located at each position of the board in all 18,656 solutions. The range was surprisingly large: a low of 1 and a high of 416. There's another file called "1freq-white.txt" that's the same only it doesn't use any zeroes so it's easier to read for humans (and slightly more difficult to parse for a computer program).
 
-8. A text file called "transitions.txt" that is an only partially successful attempt at ranking all the solutions by how fragmented they are. For each solution, it scans each row and each column, one at a time. Each time it notices the tile size value change, it increments the transition counter. The file contains a list of all the solutions and their transition counts. They range from 243 to 341.
 
-9. A text file called "regions.txt" that shows the number of regions in each solution. A "region" is an area on the board composed of adjoining tiles all of the same size.
 
-10. Python code ("postproc.py") for generating the data in items 6 through 9. It's pretty shabby code written with the assumption that it only needs to run once. (Sorry.)
