@@ -1,7 +1,7 @@
 //
 // This program is derived from pn5.java (q.v.) but is fundamentally different. pn5 tries to fill
-// a square with a collection of tiles composed of 1 1x1 tiles, 2 2x2 tiles, 3 3x3 tiles, and so forth. 
-// tr5, on the other hand, uses a collection of tiles composed of N 1x1 tiles, N-1 2x2 tiles, N-2 3x3 
+// a square with a collection of tiles consisting of 1 1x1 tiles, 2 2x2 tiles, 3 3x3 tiles, and so forth. 
+// tr5, on the other hand, uses a collection of tiles consisting of N 1x1 tiles, N-1 2x2 tiles, N-2 3x3 
 // tiles, ... and 1 NxN tile. The "tr" in "tr5" comes from "Trapridge" (see the README file) and the "5" 
 // comes from the fact that it is derived from pn5.java.
 //
@@ -187,21 +187,23 @@ public class tr5 {
     static DecimalFormat dform = new DecimalFormat("###,##0.00");
 
     static int prints = 10;
+
+    /*
     static double optc1=0;
     static double optc2=0;
     static double optc3=0;
     static double optc4=0;
     static double optc5=0;
+    */
 
     public static void main(String[] args) {
         int index, BigN, tile_count, board_size;
         TileStack tilesTop;
         BoardSquare boardTop;
 
-        BigN = 6;
+        BigN = 25;
         tilesTop = new TileStack(BigN);
         boardTop = new BoardSquare(BigN);
-        
         // tilesTop.show();
 
         System.out.println("Solution for N = "+cform.format(BigN));
@@ -211,17 +213,19 @@ public class tr5 {
 
         System.out.println("Tried "+cform.format(boardTop.attempts)+" configurations in "+dform.format((Instant.now().toEpochMilli()-boardTop.startTime)/(float)(1000*60))+ " minutes");
 
+        /*
         System.out.println("Optimization 1: "+cform.format(optc1));
         System.out.println("Optimization 2: "+cform.format(optc2));
         System.out.println("Optimization 3: "+cform.format(optc3));
         System.out.println("Optimization 4: "+cform.format(optc4));
         System.out.println("Optimization 5: "+cform.format(optc5));
+        */
     }
 
     public static void go_deep(BoardSquare board, TileStack tiles, int start_row, int start_col) {
         board.attempts++;
 
-	    if ((board.attempts % (1L << 33)) == 0)  // 31
+	    if ((board.attempts % (1L << 36)) == 0) 
             prints = 10;
 
         if (prints > 0) {
@@ -230,17 +234,13 @@ public class tr5 {
             prints -=1;
         }
 
-        boolean init_loop = false;
+        boolean init_loop = true;
 
-        for (int row = 0; row < board.board_size; row++) {
-            if (!init_loop)
-                row = start_row;
-
+        for (int row = start_row; row < board.board_size; row++) {
             for (int col = 0; col < board.board_size; col++) {
-                if (!init_loop)
+                if (init_loop)
                     col = start_col;
-
-                init_loop = true;
+                init_loop = false;
 
                 if (board.matrix[row][col] == 0) { // found an empty board position
                     int last_tile_used = 0;
@@ -254,18 +254,21 @@ public class tr5 {
                             } else {
                                 int top_gap = board.board_size - (row + last_tile_used);
                                 int smallest_tile = tiles.almost_smallest(last_tile_used);
-
-                                if (top_gap > 0 && smallest_tile > top_gap) {
-                                    optc4++;
-                                    // System.out.println("Optimization 4");
-                                    continue; // skip this tile since it leaves too small a gap at the top
+                                if (top_gap > 0) {
+                                    if (smallest_tile > top_gap) {
+                                        // optc4++;
+                                        // System.out.println("Optimization 4");
+                                        continue; // skip this tile since it leaves too small a gap at the top
+                                    }
                                 }
 
                                 int right_gap = board.board_size - (col + last_tile_used);
-                                if (right_gap > 0 && smallest_tile > right_gap) {
-                                    optc5++;
-                                    // System.out.println("Optimization 5");
-                                    continue; // skip this tile since it leaves too small a gap on the right
+                                if (right_gap > 0) {
+                                    if (smallest_tile > right_gap) {
+                                        // optc5++;
+                                        // System.out.println("Optimization 5");
+                                        continue; // skip this tile since it leaves too small a gap on the right
+                                    }
                                 }
 
                                 tiles.tile_array[index].inuse = true;

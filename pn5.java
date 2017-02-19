@@ -244,6 +244,7 @@ public class pn5 {
     public static void go_deep(BoardSquare board, TileStack tiles, int start_row, int start_col) {
         board.attempts++;
 
+        /*
 	    if ((board.attempts % (1L << 34)) == 0) 
             prints = 10;
 
@@ -252,6 +253,7 @@ public class pn5 {
             board.show();
             prints -=1;
         }
+        */
 
         boolean init_loop = true;
 

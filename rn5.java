@@ -220,7 +220,7 @@ public class rn5 {
         TileStack tilesTop;
         BoardSquare boardTop;
 
-        BigN = 10;
+        BigN = 9;
         tilesTop = new TileStack(BigN);
         boardTop = new BoardSquare(BigN);
         // tilesTop.show();
@@ -244,6 +244,7 @@ public class rn5 {
     public static void go_deep(BoardSquare board, TileStack tiles, int start_row, int start_col) {
         board.attempts++;
 
+        /*
 	    if ((board.attempts % (1L << 34)) == 0) 
             prints = 10;
 
@@ -252,6 +253,7 @@ public class rn5 {
             board.show();
             prints -=1;
         }
+        */
 
         boolean init_loop = true;
 
@@ -263,7 +265,7 @@ public class rn5 {
 
                 if (board.matrix[row][col] == 0) { // found an empty board position
                     int last_tile_used = 0;
-                    for (int index = tiles.tile_count-1; index >= 0; index--) {
+                    for (int index = tiles.tile_count-1; index >=0; index--) {
                         if (index == 0 && (row < 2 || row > board.board_size-3 || col < 2 || col > board.board_size-3)) {
                             // optc1++;
                             // System.out.println("Optimization 1");
@@ -290,7 +292,7 @@ public class rn5 {
                             }
 
                             if (!board.canfit(row, col, last_tile_used)) {
-                                continue; // move on to the next (smaller) tile
+                                continue; // this tile is too big but there may be smaller ones
                             } else {
                                 int top_gap = board.board_size - (row + last_tile_used);
                                 int smallest_tile = tiles.almost_smallest(last_tile_used);
