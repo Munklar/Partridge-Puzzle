@@ -1,4 +1,4 @@
-###Overview:
+# Overview:
 
 The Python and Java programs generated 18,656 solutions for the N=8 version of the Partridge Puzzle. They can be found in "8solutions.txt". For the fun of it, I ran pn5.java to find the first solutions for N=9, N=10, N=11, N=12, N=13, and N=14 (no solutions yet for N=14). 
 
