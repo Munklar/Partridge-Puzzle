@@ -1,4 +1,4 @@
-###Optimizations:
+# Optimizations:
 
 To get pn5.java to find solutions for larger and larger N, I added some optimizations. To measure how much benefit they provided, I ran pn5 on N=8 to see how many times the optimizations were hit during the course of finding the 18,656 solutions. Here is the output:
 
