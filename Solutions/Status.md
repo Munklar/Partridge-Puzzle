@@ -4,6 +4,6 @@ I was running rn5.java on a c4.large AWS EC2 instance. Then it died. :(  It was 
 
 I also was running pn5.java on my MacBook Air (1.3 GHz four core CPU) and it crashed after running for over a month looking for solutions to n=14. It got to attempt #5,497,558,138,889 after 52,465.41 minutes. That's 1,746,407 configurations per second which I think is none too shabby for a laptop. 
 
-I alsow was running tr5.java on the same laptop for n=25. That would have taken months, maybe years, to find a solution. It had only reached attempt #2,405,181,685,769 after 52,584.90 minutes.
+I also was running tr5.java on the same laptop for n=25. That would have taken months, maybe years, to find a solution. It had only reached attempt #2,405,181,685,769 after 52,584.90 minutes.
 
 So that's it for now.
